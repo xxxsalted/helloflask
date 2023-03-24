@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+        </ul>
+    </nav>
+    <p>{{ articles|length }} Titles</p>
+    <ul class="article-list">
+        {% for article in articles %}
+        <li>{{ article.title }}
+        <span class="float-right">
+            <a class="link" href="{{ article.link }}" target="_blank" title="Find this movie on Link">search</a>
+        </span>
+        </li>
+        {% endfor %}
+    </ul>
+{% endblock content %}

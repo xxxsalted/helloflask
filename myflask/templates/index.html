@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+    {{ super() }}
+    {% for i in get_flashed_messages() %}
+        <div class="alert">{{ i }} </div>
+    {% endfor %}
+    {{ static_img('Walking Totoro', 'totoro', 'images/totoro.gif') }}
+    <form method="post">  <!-- 指定提交方法为 POST -->
+        {{ form.csrf_token }}
+        {{ form.username.label }} {{ form.username }}<br>
+        {{ form.password.label }} {{ form.password }}<br>
+        {{ form.remember }} {{ form.remember.label }}<br>
+        {{ form.submit }}<br>
+    </form>
+{% endblock content %}

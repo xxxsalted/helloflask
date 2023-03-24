@@ -1,0 +1,15 @@
+{% macro static_file(type, filename_url, local=True) %}
+  {% if local %}
+    {% set filename_url = url_for('static', filename=filename_url) %}
+  {% endif %}
+  {% if type == 'css' %}
+    <link rel="stylesheet" href="{{ filename_url }}" type="text/css">
+  {% elif type == 'icon' %}
+    <link rel="icon" href="{{ filename_url }}">
+  {% endif %}
+{% endmacro %}
+
+{% macro static_img(alt, class, img_url) %}
+  {% set filename_url = url_for('static', filename=img_url) %}
+  <img alt="{{ alt }}" class="{{ class }}" src="{{ filename_url }}">
+{% endmacro %}

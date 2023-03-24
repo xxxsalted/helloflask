@@ -1,0 +1,3 @@
+FLASK_APP=myflask/hello
+FLASK_DEBUG=True
+SECRET_KEY=password

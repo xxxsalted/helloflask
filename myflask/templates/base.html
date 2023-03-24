@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ name|heart }}'s</title>
+
+    {% from 'macros.html' import static_img, static_file %}
+    {{ static_file('icon', 'icon1.ico') }}
+    {{ static_file('css', 'style.css') }}
+
+    {% block head %}
+        <h2>
+        {{ static_img('Cat', 'cat', 'images/cat.png') }}
+        {{ name|heart }}'s {{ title | heart }}
+        </h2>
+    {% endblock head %}
+
+</head>
+<body>
+    {% block content %}
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('watchlist') }}">Watchlist</a></li>
+            </ul>
+        </nav>
+    {% endblock content %}
+    <footer>
+        <small>&copy; 2023 <a href="https://www.cnblogs.com/edisonfish/">咸鱼运维杂谈</a></small>
+    </footer>
+</body>
+</html>
